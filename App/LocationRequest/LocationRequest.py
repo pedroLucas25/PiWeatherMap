@@ -1,13 +1,13 @@
 
 import requests
-from json import JSONDecodeError
+from json import loads, JSONDecodeError
 
 from config import Config
 from app.Models.LocationByNameModel import LocationByName
 
 class LocationRequest:
         
-    def GetLocationByStateNCountryNCity(self, country, state, city):
+    def GetLocationByStateNCountryNCity(country, state, city):
 
         try:
             if not country and (any(country == _country.alfa_2 for _country in Config.iso_3166)):
@@ -45,9 +45,12 @@ class LocationRequest:
         except Exception as e:
             print(e)
 
-    def GetLocationByCity(self, city):
+    def GetLocationByCity(city):
 
+        print('aqui5')
+        
         try:
+            print('aqui6')
             
             if not city:
                 raise Exception('Invalid City!')
@@ -56,16 +59,18 @@ class LocationRequest:
 
             response = requests.get(url)
             response.raise_for_status()  
-            data = response.json()
+            data = loads(response.text)
     
             locationByName = LocationByName(
-                name = data['name'],
-                localName = data['local_names'],
-                lat = data['lat'],
-                lon = data['lon'],
-                country = data['country'],
-                state = data['state']
+                name = data[0]['name'],
+                localName = data[0]['local_names'],
+                lat = data[0]['lat'],
+                lon = data[0]['lon'],
+                country = data[0]['country'],
+                state = data[0]['state']
             )
+            
+            print(locationByName.name)
             
             return locationByName
         

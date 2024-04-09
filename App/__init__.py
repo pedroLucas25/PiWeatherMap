@@ -6,20 +6,20 @@ def create_app():
 
     try:
         
-        if len(sys.argv) < 4:
+        if len(sys.argv) < 1:
            print('Usage: python main.py country state city')
         
         # country = sys.argv[1]
         # state = sys.argv[2]
-        city = sys.argv[3]
+        city = sys.argv[1]
         
-        app = LocationRequest.GetLocationByCity(
+        LocationRequest.GetLocationByCity(
             city = city
         )
         
-        return app
+        # return app
         
     except Exception as e:
-        return e
+        print(e)
 
     
