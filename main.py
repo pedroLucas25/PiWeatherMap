@@ -1,4 +1,4 @@
-from app import create_app
+from app import return_data
 
 if __name__ == '__main__':
-    create_app()
+    return_data()

@@ -1,6 +1,6 @@
 import sys
 
-def create_app():
+def return_data():
 
     from app.LocationRequest.LocationRequest import LocationRequest
 
@@ -13,11 +13,11 @@ def create_app():
         # state = sys.argv[2]
         city = sys.argv[1]
         
-        LocationRequest.GetLocationByCity(
+        data = LocationRequest.GetLocationByCity(
             city = city
         )
         
-        # return app
+        return data
         
     except Exception as e:
         print(e)

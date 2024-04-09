@@ -46,11 +46,8 @@ class LocationRequest:
             print(e)
 
     def GetLocationByCity(city):
-
-        print('aqui5')
         
         try:
-            print('aqui6')
             
             if not city:
                 raise Exception('Invalid City!')
@@ -69,8 +66,6 @@ class LocationRequest:
                 country = data[0]['country'],
                 state = data[0]['state']
             )
-            
-            print(locationByName.name)
             
             return locationByName
         
