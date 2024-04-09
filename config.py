@@ -1,8 +1,24 @@
+import json
+
 class Config:
+
+    #region GENERAL SETUP
+
+    appid = 'c034a2bddc801c826b1a42ddfb919334'
+    iso_3166 = json.load('ISO-3166.json')
+
+    #endregion    
+
+
+
+    #region GEOLOCATION SETUP
+
+    geolocation_url = 'http://api.openweathermap.org/geo/1.0/direct?'
+
+    #endregion
     
-    #*************
-    #DATABSE SETUP
-    #*************
+    #region DATABSE SETUP
+
     local_db_host=''
     local_db=''
     local_db_user=''
@@ -23,9 +39,10 @@ class Config:
     production_db_user=''
     production_db_password=''
 
-    #***********
-    #EMAIL SETUP
-    #***********
+    #endregion
+
+    #region EMAIL SETUP
+
     local_email_identifier = ''
     local_email_base_url = ''
     local_email_base_url_adm = ''
@@ -50,11 +67,14 @@ class Config:
     production_email_sender = ''
     production_email_password= ''
 
-    #************************
-    #InfoData
-    #************************
+    #endregion
+
+    #region InfoData
+    
     infodata_url_active = False
     local_infodata_url = 'http://127.0.0.1:5399/'
     development_infodata_url = ''
     homolog_infodata_url = ''
     production_infodata_url = ''
+
+    #endregion
