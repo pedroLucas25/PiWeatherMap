@@ -15,6 +15,12 @@ class Config:
     geolocation_url = 'http://api.openweathermap.org/geo/1.0/direct?'
 
     #endregion
+
+    #region WEATHER SETUP
+
+    weather_url = 'https://api.openweathermap.org/data/3.0/onecall?'
+
+    #endregion
     
     #region DATABSE SETUP
 
