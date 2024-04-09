@@ -7,7 +7,7 @@ from app.Models.LocationByNameModel import LocationByName
 
 class LocationRequest:
         
-    def GetLocationByStateNCountry(self, state, country, city):
+    def GetLocationByStateNCountryNCity(self, country, state, city):
 
         try:
             if not country and (any(country == _country.alfa_2 for _country in Config.iso_3166)):
@@ -34,7 +34,8 @@ class LocationRequest:
                 state = data['state']
             )
             
-            print(f"Nome: {locationByName.name}, country: {locationByName.country}")
+            return locationByName
+        
         except requests.RequestException as e:
             print(f"Erro na requisição: {e}")
         except JSONDecodeError:
