@@ -3,6 +3,7 @@ import sys
 def return_data():
 
     from app.LocationRequest.LocationRequest import LocationRequest
+    from app.WeatherRequest.WeatherRequest import WeatherRequest
 
     try:
         
@@ -13,8 +14,13 @@ def return_data():
         # state = sys.argv[2]
         city = sys.argv[1]
         
-        data = LocationRequest.GetLocationByCity(
+        data_tmp = LocationRequest.GetLocationByCity(
             city = city
+        )
+
+        data = WeatherRequest.GetWeatherByLatNLon(
+            lat = data_tmp.lat,
+            lon = data_tmp.lon
         )
         
         return data

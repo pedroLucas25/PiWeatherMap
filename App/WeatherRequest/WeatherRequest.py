@@ -18,20 +18,17 @@ class WeatherRequest:
             lang = 'pt'
             units = 'metric'
             
-            url = ''
-            url.join([
-                Config.weather_url, 'lat=', lat,
-                '&lon=', lon,
-                '&exclude=', exclude,
-                '&lang=', lang,
-                '&units', units,
-                '&appid=', Config.appid
-            ])
+            url = Config.weather_url +\
+                  'lat=' + str(lat) +\
+                  '&lon=' + str(lon) +\
+                  '&exclude=' + exclude +\
+                  '&lang=' + lang +\
+                  '&units' + units +\
+                  '&appid=' + Config.appid
 
             response = requests.get(url)
             response.raise_for_status()  
-            data_tmp = loads(response.text)
-            data = data_tmp[0]
+            data = loads(response.text)
     
             currentNForecastWeatherModel = CurrentNForecastWeatherModel(
                 lat = data['lat'],
@@ -45,7 +42,7 @@ class WeatherRequest:
                 alerts = None
             )
 
-            print(currentNForecastWeatherModel.daily['weather']['description'])
+            # print(currentNForecastWeatherModel.daily[0]['weather'][0]['description'])
             
             return currentNForecastWeatherModel.daily
         
