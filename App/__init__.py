@@ -1,11 +1,25 @@
-from flask import Flask
-from flask_cors import CORS
+import sys
 
-app = Flask(__name__)
-CORS(app)
+def return_data():
 
-def create_app():
+    from app.LocationRequest.LocationRequest import LocationRequest
 
-    from app.Api.Hello import HelloController
+    try:
+        
+        if len(sys.argv) < 1:
+           print('Usage: python main.py country state city')
+        
+        # country = sys.argv[1]
+        # state = sys.argv[2]
+        city = sys.argv[1]
+        
+        data = LocationRequest.GetLocationByCity(
+            city = city
+        )
+        
+        return data
+        
+    except Exception as e:
+        print(e)
 
-    return app
+    
