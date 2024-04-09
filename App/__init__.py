@@ -5,8 +5,9 @@ def create_app():
     from app.LocationRequest.LocationRequest import LocationRequest
 
     try:
+        
         if len(sys.argv) < 4:
-            raise Exception('Usage: python main.py country state city')
+           print('Usage: python main.py country state city')
         
         country = sys.argv[1]
         state = sys.argv[2]

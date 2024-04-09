@@ -5,11 +5,10 @@ class Config:
     #region GENERAL SETUP
 
     appid = 'c034a2bddc801c826b1a42ddfb919334'
-    iso_3166 = json.load('ISO-3166.json')
+    with open('ISO-3166.json', 'r') as file:
+        iso_3166 = json.load(file)
 
     #endregion    
-
-
 
     #region GEOLOCATION SETUP
 
