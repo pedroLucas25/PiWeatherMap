@@ -44,7 +44,7 @@ class WeatherRequest:
 
             # print(currentNForecastWeatherModel.daily[0]['weather'][0]['description'])
             
-            return currentNForecastWeatherModel.daily
+            return currentNForecastWeatherModel
         
         except requests.RequestException as e:
             print(f"Erro na requisição: {e}")
