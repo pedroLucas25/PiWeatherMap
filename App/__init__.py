@@ -9,13 +9,11 @@ def create_app():
         if len(sys.argv) < 4:
            print('Usage: python main.py country state city')
         
-        country = sys.argv[1]
-        state = sys.argv[2]
+        # country = sys.argv[1]
+        # state = sys.argv[2]
         city = sys.argv[3]
         
-        app = LocationRequest.GetLocationByStateNCountryNCity(
-            country = country,
-            state = state,
+        app = LocationRequest.GetLocationByCity(
             city = city
         )
         
