@@ -56,15 +56,16 @@ class LocationRequest:
 
             response = requests.get(url)
             response.raise_for_status()  
-            data = loads(response.text)
+            data_tmp = loads(response.text)
+            data = data_tmp[0]
     
             locationByName = LocationByName(
-                name = data[0]['name'],
-                localName = data[0]['local_names'],
-                lat = data[0]['lat'],
-                lon = data[0]['lon'],
-                country = data[0]['country'],
-                state = data[0]['state']
+                name = data['name'],
+                localName = data['local_names'],
+                lat = data['lat'],
+                lon = data['lon'],
+                country = data['country'],
+                state = data['state']
             )
             
             return locationByName

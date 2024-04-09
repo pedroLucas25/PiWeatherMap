@@ -7,7 +7,7 @@ def return_data():
     try:
         
         if len(sys.argv) < 1:
-           print('Usage: python main.py country')
+           print('Usage: python main.py city')
         
         # country = sys.argv[1]
         # state = sys.argv[2]
