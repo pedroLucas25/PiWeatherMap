@@ -1,18 +1,9 @@
-import sys
-
-def return_data():
+def return_data(city):
 
     from app.LocationRequest.LocationRequest import LocationRequest
     from app.WeatherRequest.WeatherRequest import WeatherRequest
 
     try:
-        
-        if len(sys.argv) < 1:
-           print('Usage: python main.py city')
-        
-        # country = sys.argv[1]
-        # state = sys.argv[2]
-        city = sys.argv[1]
         
         data_tmp = LocationRequest.GetLocationByCity(
             city = city
