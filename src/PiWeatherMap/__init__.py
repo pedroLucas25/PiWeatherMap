@@ -17,6 +17,6 @@ def return_data(city):
         return data
         
     except Exception as e:
-        print(e)
+        raise Exception(e)
 
     
