@@ -7,10 +7,10 @@ def test_location_request():
     test_args = ["cli.py", "brasilia"]
 
     with patch.object(sys, 'argv', test_args):
-        data = cli.return_data()
+        data = cli.return_data(city=test_args[1])
 
-        lat = data.lat
-        lon = data.lon
+        lat = data['lat']
+        lon = data['lon']
         
         assert lat == -15.7934
         assert lon == -47.8823
@@ -20,8 +20,8 @@ def test_wheather_request():
     test_args = ["cli.py", "brasilia"]
 
     with patch.object(sys, 'argv', test_args):
-        data = cli.return_data()
+        data = cli.return_data(city=test_args[1])
 
-        timezone_offset = data.timezone_offset
+        city_name = data['name']
         
-        assert timezone_offset == -10800
+        assert city_name == 'Brasília'
