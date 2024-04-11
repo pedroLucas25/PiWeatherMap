@@ -1,8 +1,8 @@
 import requests
 from json import loads, JSONDecodeError
 
-from config import Config
-from app.Models.CurrentNForecastWeatherModel import CurrentNForecastWeatherModel
+from PiWeatherMap.config import Config
+from PiWeatherMap.Models.CurrentNForecastWeatherModel import CurrentNForecastWeatherModel
 
 class WeatherRequest:
 
@@ -42,15 +42,15 @@ class WeatherRequest:
                 alerts = None
             )
 
-            # print(currentNForecastWeatherModel.daily[0]['weather'][0]['description'])
+            # raise Exception(currentNForecastWeatherModel.daily[0]['weather'][0]['description'])
             
             return currentNForecastWeatherModel
         
         except requests.RequestException as e:
-            print(f"Erro na requisição: {e}")
+            raise Exception(f"Erro na requisição: {e}")
         except JSONDecodeError:
-            print("Erro ao decodificar o JSON")
+            raise Exception("Erro ao decodificar o JSON")
         except KeyError:
-            print("Erro ao acessar uma chave no dicionário de dados")
+            raise Exception("Erro ao acessar uma chave no dicionário de dados")
         except Exception as e:
-            print(e)
+            raise Exception(e)
