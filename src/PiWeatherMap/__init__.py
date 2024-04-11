@@ -13,6 +13,8 @@ def return_data(city):
             lat = data_tmp.lat,
             lon = data_tmp.lon
         )
+
+        data['name'] = data_tmp['name']
         
         return data
         
