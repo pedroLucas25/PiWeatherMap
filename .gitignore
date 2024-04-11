@@ -2,3 +2,6 @@ amb-PiWeatherMap
 __pycache__
 .vscode
 .pytest_cache
+dist
+PiWeatherMap.egg-info
+build

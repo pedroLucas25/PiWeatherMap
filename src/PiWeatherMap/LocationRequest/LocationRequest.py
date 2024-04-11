@@ -2,15 +2,15 @@
 import requests
 from json import loads, JSONDecodeError
 
-from config import Config
-from app.Models.LocationByNameModel import LocationByName
+from PiWeatherMap.config import Config
+from PiWeatherMap.Models.LocationByNameModel import LocationByName
 
 class LocationRequest:
         
     def GetLocationByStateNCountryNCity(country, state, city):
 
         try:
-            if not country and (any(country == _country.alfa_2 for _country in Config.iso_3166)):
+            if not country:
                 raise Exception('Invalid Coutry!')
             
             if not state:

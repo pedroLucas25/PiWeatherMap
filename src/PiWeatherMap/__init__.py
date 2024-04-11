@@ -1,7 +1,7 @@
 def return_data(city):
 
-    from app.LocationRequest.LocationRequest import LocationRequest
-    from app.WeatherRequest.WeatherRequest import WeatherRequest
+    from PiWeatherMap.LocationRequest.LocationRequest import LocationRequest
+    from PiWeatherMap.WeatherRequest.WeatherRequest import WeatherRequest
 
     try:
         

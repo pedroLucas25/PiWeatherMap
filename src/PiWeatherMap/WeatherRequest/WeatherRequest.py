@@ -1,8 +1,8 @@
 import requests
 from json import loads, JSONDecodeError
 
-from config import Config
-from app.Models.CurrentNForecastWeatherModel import CurrentNForecastWeatherModel
+from PiWeatherMap.config import Config
+from PiWeatherMap.Models.CurrentNForecastWeatherModel import CurrentNForecastWeatherModel
 
 class WeatherRequest:
 
