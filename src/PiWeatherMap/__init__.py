@@ -14,9 +14,15 @@ def return_data(city):
             lon = data_tmp.lon
         )
 
-        data['name'] = data_tmp['name']
+        response = {
+            'name': data_tmp.name,
+            'lat': data.lat,
+            'lon': data.lon,
+            'timezone_offset': data.timezone_offset,
+            'daily': data.daily
+        }
         
-        return data
+        return response
         
     except Exception as e:
         raise Exception(e)
