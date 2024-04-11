@@ -37,13 +37,13 @@ class LocationRequest:
             return locationByName
         
         except requests.RequestException as e:
-            print(f"Erro na requisição: {e}")
+            raise Exception(f"Erro na requisição: {e}")
         except JSONDecodeError:
-            print("Erro ao decodificar o JSON")
+            raise Exception("Erro ao decodificar o JSON")
         except KeyError:
-            print("Erro ao acessar uma chave no dicionário de dados")
+            raise Exception("Erro ao acessar uma chave no dicionário de dados")
         except Exception as e:
-            print(e)
+            raise Exception(e)
 
     def GetLocationByCity(city):
         
@@ -61,7 +61,6 @@ class LocationRequest:
     
             locationByName = LocationByName(
                 name = data['name'],
-                localName = data['local_names'],
                 lat = data['lat'],
                 lon = data['lon'],
                 country = data['country'],
@@ -71,10 +70,10 @@ class LocationRequest:
             return locationByName
         
         except requests.RequestException as e:
-            print(f"Erro na requisição: {e}")
+            raise Exception(f"Erro na requisição: {e}")
         except JSONDecodeError:
-            print("Erro ao decodificar o JSON")
+            raise Exception("Erro ao decodificar o JSON")
         except KeyError:
-            print("Erro ao acessar uma chave no dicionário de dados")
+            raise Exception("Erro ao acessar uma chave no dicionário de dados")
         except Exception as e:
-            print(e)
+            raise Exception(e)
